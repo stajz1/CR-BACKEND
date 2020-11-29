@@ -64,7 +64,7 @@ exports.storePatient = async (data) => {
     }
 }
 
-/*
+
 exports.workOut = async (data) => {
 
     let { exerciseId, steps, userId } = data;
@@ -80,7 +80,7 @@ exports.workOut = async (data) => {
     }
 
 }
-*/
+
 
 /*
 exports.workOut = async () => {
