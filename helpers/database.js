@@ -10,10 +10,10 @@ const sequelize = new Sequelize(
         dialectOptions: {
             dateStrings: true,
             typeCast: true,
-            timezone: "+05:30",
+            timezone: "+01:00",
         },
         logging: false,
-        timezone: "+05:30",
+        timezone: "+01:00",
     }
 );
 

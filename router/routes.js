@@ -5,7 +5,7 @@ Routes.use('/patient', require('./Patient'))
 Routes.use('/exercise', require('./Exercise'))
 Routes.use('/diagnosis', require('./Diagnosis'))
 Routes.use('/vitalSign', require('./VitalSign'))
-
+Routes.use('/deleteUser', require('./Patient'))
 
 
 module.exports = Routes;

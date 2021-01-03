@@ -15,6 +15,10 @@ const exerciseCategory = sequelize.define(
             type: Sequelize.STRING(64),
             allowNull: true
         },
+        categoryImage: {
+            type: Sequelize.STRING(64),
+            allowNull: true
+        }
 
     }
 );

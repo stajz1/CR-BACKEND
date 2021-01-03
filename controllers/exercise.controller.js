@@ -36,10 +36,10 @@ exports.exercise = async (req, res, next) => {
 }
 
 exports.storeCategory = async (req, res, next) => {
-
+    let data = await exerciseServices.storeCategory(req.categoryImage,  req.body.categoryName)
+    res.status(200).json(data);
     try {
-        let data = await exerciseServices.storeCategory(req.categoryImage,  req.body.categoryName)
-        res.status(200).json(data);
+
     }catch (e) {
         next(Constants.errors.unAuthorized)
     }
@@ -79,6 +79,29 @@ exports.fetchAssignedExercise = async (req, res, next) => {
     }catch (e) {
         next(Constants.errors.unAuthorized)
 
+    }
+
+}
+
+
+exports.deleteExercise = async (req, res, next) => {
+
+    try {
+        let data = await exerciseServices.deleteExerciseList(req.params.id)
+        res.status(200).json({status: !!data});
+    }catch (e) {
+        next(Constants.errors.unAuthorized)
+    }
+
+}
+
+exports.deleteCategory = async (req, res, next)=> {
+
+    try {
+        let data = await exerciseServices.deleteCategory(req.params.id)
+        res.status(200).json({status: !!data});
+    }catch (e) {
+        next(Constants.errors.unAuthorized)
     }
 
 }

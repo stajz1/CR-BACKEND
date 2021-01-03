@@ -26,8 +26,11 @@ exports.history = (id) => {
 
     return PatientWorkOut.findAll({
         where: {
-            userId: id
+            userId: id,
         },
+        order: [
+            ['createdAt', 'DESC'],
+        ],
         include: [
             {
                 model: Exercises
@@ -64,7 +67,6 @@ exports.storePatient = async (data) => {
     }
 }
 
-
 exports.workOut = async (data) => {
 
     let { exerciseId, steps, userId } = data;
@@ -81,16 +83,45 @@ exports.workOut = async (data) => {
 
 }
 
+exports.deleteAssignedExercise = async (data) => {
+
+    let { exerciseId, userId } = data;
+
+    let deletedData = AssignedExercises.destroy({
+        where :{
+            userId: userId,
+            exerciseId: exerciseId,
+        }
+    })
+
+    return {
+        status: !!deletedData
+    }
+
+}
 
 /*
-exports.workOut = async () => {
+exports.todayTask = async () => {
 
     return PatientWorkOut.findAll({
+        where:{
+
+        },
         attributes: ['steps', 'exerciseId', [sequelize.fn('count', sequelize.col('exerciseId')), 'count']],
         group : ['exerciseId'],
         raw: true,
-        order: sequelize.literal('count DESC')    })
+        order: sequelize.literal('count DESC')})
 
 }
+
 */
 
+exports.deleteUser = async (id) => {
+
+    return User.destroy({
+        where: {
+            _id: id
+        }
+    })
+
+}

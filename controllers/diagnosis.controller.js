@@ -24,3 +24,15 @@ exports.diagnosisList = async (req, res, next) => {
     }
 
 }
+
+exports.deleteDiagnosis = async (req, res, next) => {
+
+    try {
+        let data = await diagnosisServices.deleteDiagnosis(req.params.diagnosisId)
+        res.status(200).json({ status: !!data})
+
+    }catch (e) {
+        next(Constants.errors.server)
+    }
+
+}

@@ -32,7 +32,7 @@ exports.login = async (data) => {
 
 exports.register = async (data) => {
 
-    let { fullName, userName, password, userType } = data;
+    let { fullName, userName, password, userType, age, diagnosis } = data;
     let userExist = await User.findOne({
         where: {
             userName: userName,
@@ -49,6 +49,8 @@ exports.register = async (data) => {
         userName: userName,
         password: password,
         fullName: fullName,
+        age: age,
+        diagnosis: diagnosis,
         userType: userType
     })
 /*
@@ -62,5 +64,15 @@ exports.register = async (data) => {
     return {
         status: !!userCreate
     };
+
+}
+
+exports.list = async (type) => {
+
+    return User.findAll({
+        where: {
+            userType: type
+        }
+    })
 
 }

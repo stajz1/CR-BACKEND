@@ -66,3 +66,23 @@ exports.assignedExerciseList = async (id) => {
     })
 
 }
+
+exports.deleteExerciseList = async (id) => {
+
+    return ExerciseModel.destroy({
+        where: {
+            _id: id
+        }
+    })
+
+}
+
+exports.deleteCategory = async (id) => {
+
+    return ExerciseCategory.destroy({
+        where: {
+            _id: id
+        }
+    })
+
+}

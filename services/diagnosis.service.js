@@ -21,3 +21,13 @@ exports.getList = async (userId) => {
     })
 
 }
+
+exports.deleteDiagnosis = async (id) => {
+
+    return Diagnosis.destroy({
+        where: {
+            _id: id
+        }
+    })
+
+}

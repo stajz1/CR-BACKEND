@@ -4,6 +4,8 @@ const express = require("express"),
 const path = require("path");
 
 dotenv.config();
+process.env.TZ = "Asia/Calcutta";
+
 const sequelize = require("./helpers/database");
 
 const app = express();

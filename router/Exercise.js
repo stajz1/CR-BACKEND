@@ -1,6 +1,6 @@
 const Router = require("express").Router();
 
-const { exercisesList, exerciseCategory, exercise, storeCategory, storeExercise, assignExercise, fetchAssignedExercise } = require('../controllers/exercise.controller')
+const { exercisesList, deleteExercise, deleteCategory, exerciseCategory, exercise, storeCategory, storeExercise, assignExercise, fetchAssignedExercise } = require('../controllers/exercise.controller')
 const { ImageUpload } = require('./../helpers/multer');
 
 Router.get('/category', exerciseCategory)
@@ -18,7 +18,9 @@ Router.post('/assignExercise', assignExercise);
 
 Router.get('/fetchAssignedExercise/:id', fetchAssignedExercise)
 
-Router.get('')
+Router.delete('/deleteExercise/:id', deleteExercise)
+
+Router.delete('/deleteCategory/:id', deleteCategory)
 
 module.exports = Router;
 

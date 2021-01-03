@@ -22,10 +22,13 @@ const User = sequelize.define(
         },
         password: {
             type: Sequelize.STRING(64),
-            unique: true,
             allowNull: true
         },
         age: {
+            type: Sequelize.STRING(64),
+            allowNull: true
+        },
+        diagnosis: {
             type: Sequelize.STRING(64),
             allowNull: true
         },
