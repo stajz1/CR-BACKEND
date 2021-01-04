@@ -10,6 +10,7 @@ const sequelize = require("./helpers/database");
 
 const app = express();
 
+
 app.use(
     "/uploads",
     express.static(path.join(process.env.APPPATH,  "uploads"))
